@@ -7,28 +7,33 @@ dashboard to portfolio, 3d assets and ecommerce site
 <template>
   <div class="home">
     <h1>Welcome to Creative Corvid</h1>
-    <p>
-      Your gateway to creative solutions. Brought to you by the Creative
-      Corvids.
-    </p>
-    <div class="navigation">
+    <p>Your gateway to creative solutions.</p>
+    <div class="navigation cc-d-flex cc-gap-4 cc-justify-center cc-mt-10">
       <router-link
         to="/portfolio"
         class="nav-link"
-        >Portfolio</router-link
       >
+        <CCButton class="CC__purple">Portfolio</CCButton>
+      </router-link>
+
       <router-link
         to="/3d-assets"
         class="nav-link"
-        >3D Assets</router-link
       >
+        <CCButton class="CC__green">3D Assets </CCButton>
+      </router-link>
+
       <router-link
         to="/shop"
         class="nav-link"
-        >Shop</router-link
       >
+        <CCButton class="CC__blue-gray"> Shop </CCButton>
+      </router-link>
     </div>
   </div>
 </template>
 /* Styles ================================================================ */
-<style lang="postcss"></style>
+<style lang="postcss">
+.navigation {
+}
+</style>
