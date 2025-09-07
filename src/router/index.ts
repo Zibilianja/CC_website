@@ -24,5 +24,10 @@ export default createRouter({
       name: 'Shop',
       component: () => import('../views/CraftShop.vue'),
     },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: () => import('../views/Contact.vue'),
+    },
   ],
 });
