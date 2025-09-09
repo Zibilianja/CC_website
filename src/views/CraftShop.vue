@@ -6,6 +6,9 @@ various craft products and materials.
 /* Template ============================================================== */
 <template>
   <div class="craft-shop">
+    <router-link to="/">
+      <CCButton class="cc-mb-4 CC__purple">Back To Home</CCButton>
+    </router-link>
     <h1>Craft Shop</h1>
     <h2>Coming Soon... Page in development</h2>
     <p>Explore our collection of craft products and materials.</p>

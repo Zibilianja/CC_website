@@ -34,4 +34,12 @@ Contact.vue - This is the contact page for Creative Corvid.
   </div>
 </template>
 /* Styles ================================================================ */
-<style lang="postcss"></style>
+<style lang="postcss">
+.contact {
+  a {
+    color: #044e38;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
+</style>

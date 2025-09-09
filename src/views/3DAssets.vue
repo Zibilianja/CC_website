@@ -6,6 +6,9 @@
 /* Template ============================================================== */
 <template>
   <div class="3d-assets">
+    <router-link to="/">
+      <CCButton class="cc-mb-4 CC__purple">Back To Home</CCButton>
+    </router-link>
     <h1>3D Assets</h1>
     <h2>Coming Soon... Page in development</h2>
     <p>Explore our collection of 3D models and assets.</p>
