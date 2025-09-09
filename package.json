@@ -9,11 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "creativecorvidstylelibrary": "^1.0.2",
+    "creativecorvidstylelibrary": "^1.0.3",
     "pinia": "^3.0.3",
-    "vidstack": "^1.12.13",
     "vue": "^3.5.18",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "dayjs": "^1.11.13",
+    "maska": "^3.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/vue-fontawesome": "^3.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",

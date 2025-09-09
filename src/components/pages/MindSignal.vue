@@ -1,16 +1,11 @@
 /* ==========================================================================
-CraftShop.vue - Craft shop landing page with navigation panel, showcasing
-various craft products and materials.
+MindSignal.vue - This component represents the Mind Signal project.
 ========================================================================== */
 <script setup lang="ts"></script>
 /* Template ============================================================== */
 <template>
-  <div class="craft-shop">
-    <h1>Craft Shop</h1>
-    <h2>Coming Soon... Page in development</h2>
-    <p>Explore our collection of craft products and materials.</p>
-    <!-- Craft product items would be dynamically loaded here -->
-  </div>
+  <h1>Mind Signal Project</h1>
+  <p>This is a placeholder for the Mind Signal project details.</p>
 </template>
 /* Styles ================================================================ */
 <style lang="postcss"></style>

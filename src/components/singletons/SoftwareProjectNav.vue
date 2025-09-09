@@ -1,16 +1,20 @@
 /* ==========================================================================
-CraftShop.vue - Craft shop landing page with navigation panel, showcasing
-various craft products and materials.
+SoftwareProjectNav.vue - Navigation component for software projects.
 ========================================================================== */
 <script setup lang="ts"></script>
 /* Template ============================================================== */
 <template>
-  <div class="craft-shop">
-    <h1>Craft Shop</h1>
-    <h2>Coming Soon... Page in development</h2>
-    <p>Explore our collection of craft products and materials.</p>
-    <!-- Craft product items would be dynamically loaded here -->
+  <div
+    class="header-container cc-d-flex cc-justify-evenly cc-align-items-center cc-bg-transparent cc-w-fit-content cc-mx-auto"
+  >
+    <slot></slot>
   </div>
 </template>
 /* Styles ================================================================ */
-<style lang="postcss"></style>
+<style lang="postcss">
+.header-container {
+  height: 3rem;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+</style>

@@ -4,11 +4,13 @@ import CreativeCorvidLibraryPlugin from 'creativecorvidstylelibrary';
 import router from './router';
 import './style.css';
 import 'creativecorvidstylelibrary/style.css';
+import FontAwesomeIcon from './fonts.ts';
 import App from './App.vue';
 
 const app = createApp(App);
 app.use(createPinia());
 app.use(router);
+app.component('FontAwesomeIcon', FontAwesomeIcon);
 app.use(CreativeCorvidLibraryPlugin);
 
 app.mount('#app');

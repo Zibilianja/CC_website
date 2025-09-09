@@ -3,16 +3,26 @@ Header.vue - The Header reusable component with basic nav and logo on most
 pages.
 ========================================================================== */
 <script setup lang="ts">
-import BlackCrowLogo from '../assets/BlackCrowLogo.svg';
-import WhiteRavenLogo from '../assets/WhiteRavenLogo2.svg';
+import { useRouter } from 'vue-router';
+import BlackCrowLogo from '../../assets/BlackCrowLogo.svg';
+
+const router = useRouter();
 </script>
 /* Template ============================================================== */
 <template>
   <div
-    class="header-container cc-d-flex cc-justify-between cc-align-items-center cc-mb-10"
+    class="header-container cc-d-flex cc-justify-between cc-align-items-center cc-mt-8"
   >
-    <router-link to="/">
-      <CCButton class="CC__gray">Back to Home</CCButton>
+    <router-link
+      v-if="router.currentRoute.value.path !== '/'"
+      to="/"
+    >
+      <CCButton
+        aria-label="Back to Home"
+        title="Back to Home"
+        class="CC__purple cc-ml-6"
+        >Back to Home</CCButton
+      >
     </router-link>
     <div>
       <slot></slot>

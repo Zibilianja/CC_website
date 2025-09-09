@@ -2,29 +2,67 @@
 SoftwareDevelopmentPortfolio.vue - This component showcases a software
 development portfolio.
 ========================================================================== */
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ProjectList from '../pages/ProjectList.vue';
+import SoftwareProjectNav from '../singletons/SoftwareProjectNav.vue';
+import CCDemo from '../pages/CCDemo.vue';
+import MindSignal from '../pages/MindSignal.vue';
+import { storeToRefs } from 'pinia';
+import { useNavStore } from '../../stores/useNavStore';
+
+const { currentSoftwareSubView } = storeToRefs(useNavStore());
+
+const changeComponent = (componentType: string) => {
+  switch (componentType) {
+    case 'projects':
+      currentSoftwareSubView.value = ProjectList;
+      break;
+    case 'demo':
+      currentSoftwareSubView.value = CCDemo;
+      break;
+    case 'mind-signal':
+      currentSoftwareSubView.value = MindSignal;
+      break;
+    default:
+      currentSoftwareSubView.value = ProjectList;
+  }
+};
+</script>
 /* Template ============================================================== */
 <template>
-  <div class="software-development-portfolio">
+  <div class="cc-mb-4">
     <h2>Software Development Portfolio</h2>
-    <p>Here are some of my software development projects:</p>
-    <ul>
-      <li>
-        <strong>Project A:</strong> A web application built with Vue.js and
-        Node.js.
-      </li>
-      <li>
-        <strong>Project B:</strong> A mobile app developed using React Native.
-      </li>
-      <li>
-        <strong>Project C:</strong> An open-source library for data
-        visualization in Python.
-      </li>
-    </ul>
-    <p>
-      For more details, visit my
-      <a href="https://github.com/yourusername/your-repo">GitHub</a>
-    </p>
+    <div class="cc-w-75 cc-mx-auto">
+      <SoftwareProjectNav>
+        <a
+          class="cc-mr-6"
+          :class="currentSoftwareSubView === ProjectList ? 'active-anchor' : ''"
+          :disabled="currentSoftwareSubView === ProjectList"
+          @click="changeComponent('projects')"
+          >Project List</a
+        >
+        <a
+          class="cc-ml-6"
+          :class="currentSoftwareSubView === CCDemo ? 'active-anchor' : ''"
+          :disabled="currentSoftwareSubView === CCDemo"
+          @click="changeComponent('demo')"
+          >CC Component Demo</a
+        >
+        <a
+          class="cc-ml-6"
+          :class="currentSoftwareSubView === MindSignal ? 'active-anchor' : ''"
+          :disabled="currentSoftwareSubView === MindSignal"
+          @click="changeComponent('mind-signal')"
+          >Mind Signal</a
+        >
+      </SoftwareProjectNav>
+    </div>
+    <component
+      :is="currentSoftwareSubView"
+      :key="currentSoftwareSubView"
+      @view-library="changeComponent('demo')"
+      @view-mind-signal="changeComponent('mind-signal')"
+    />
   </div>
 </template>
 /* Styles ================================================================ */
