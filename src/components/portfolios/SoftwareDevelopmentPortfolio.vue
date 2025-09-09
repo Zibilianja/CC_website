@@ -30,7 +30,7 @@ const changeComponent = (componentType: string) => {
 </script>
 /* Template ============================================================== */
 <template>
-  <div class="cc-mb-4">
+  <div class="software-dev-portfolio-container cc-mb-4">
     <h2>Software Development Portfolio</h2>
     <div class="cc-w-75 cc-mx-auto">
       <SoftwareProjectNav>
@@ -66,4 +66,10 @@ const changeComponent = (componentType: string) => {
   </div>
 </template>
 /* Styles ================================================================ */
-<style lang="postcss"></style>
+<style lang="postcss">
+.software-dev-portfolio-container {
+  li {
+    list-style: none;
+  }
+}
+</style>

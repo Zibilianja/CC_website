@@ -9,8 +9,11 @@ import Resume from '../components/portfolios/Resume.vue';
 import Header from '../components/singletons/Header.vue';
 import { useNavStore } from '../stores/useNavStore';
 import { storeToRefs } from 'pinia';
+import ProjectList from '../components/pages/ProjectList.vue';
 
-const { currentPortfolioView } = storeToRefs(useNavStore());
+const { currentPortfolioView, currentSoftwareSubView } = storeToRefs(
+  useNavStore()
+);
 
 const changePortfolio = (portfolioType: string) => {
   switch (portfolioType) {
@@ -22,6 +25,7 @@ const changePortfolio = (portfolioType: string) => {
       break;
     case 'game':
       currentPortfolioView.value = GameDevelopmentPortfolio; // Placeholder for GameDevelopmentPortfolio
+      currentSoftwareSubView.value = ProjectList;
       break;
     case 'resume':
       currentPortfolioView.value = Resume;

@@ -10,7 +10,7 @@ const datePickerValue = ref<string | undefined>('');
 </script>
 /* Template ============================================================== */
 <template>
-  <div class="CC__demo-container">
+  <div class="CC__demo-container date-demo">
     <div class="CC__demo-header">
       <h2 class="demo-header">Date Input Demo</h2>
       <div class="demo-description">
@@ -36,3 +36,10 @@ const datePickerValue = ref<string | undefined>('');
     </div>
   </div>
 </template>
+<style lang="scss">
+.date-demo {
+  .CC__close-button {
+    margin-right: 0.25rem;
+  }
+}
+</style>
