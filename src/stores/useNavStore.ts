@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, shallowRef, type Component } from 'vue';
+import { shallowRef, type Component } from 'vue';
 import type { NavStore } from '../types/NavStore';
 import AnimationPortfolio from '../components/portfolios/AnimationPortfolio.vue';
 import ProjectList from '../components/pages/ProjectList.vue';
