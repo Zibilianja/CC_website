@@ -29,6 +29,7 @@
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
         src="/media/Ear-buds.mp4"
+        type="video/mp4"
       />
       <p class="">
         Six-second product teaser created. I modeled the earbuds and case, built
@@ -49,6 +50,7 @@
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
         src="/media/Sword-in-stone.mp4"
+        type="video/mp4"
       />
       <p class="cc-p-4">
         Three second animation of a magical sword in a stone, created in
@@ -69,6 +71,7 @@
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
         src="/media/m1911.mp4"
+        type="video/mp4"
       />
       <p class="">
         Three second animation of a M1911 pistol, game ready asset that I
