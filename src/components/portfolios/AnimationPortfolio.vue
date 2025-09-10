@@ -4,14 +4,16 @@
 <script setup lang="ts"></script>
 /* Template ============================================================== */
 <template>
-  <h1>3D Modeling and Animation Portfolio</h1>
-  <div>
-    Explore my collection of creative works and projects in 3D modeling and
-    animation.
-  </div>
-  <div>
-    If any of the videos look over saturated or over exposed: try turning off
-    AutoHDR on windows machines.
+  <div class="title-wrapper cc-mx-4">
+    <h1>3D Modeling and Animation Portfolio</h1>
+    <div>
+      Explore my collection of creative works and projects in 3D modeling and
+      animation.
+    </div>
+    <div>
+      If any of the videos look over saturated or over exposed: try turning off
+      AutoHDR on windows machines.
+    </div>
   </div>
   <div
     class="cc-mt-4 cc-d-flex cc-flex-wrap cc-justify-center cc-bg-gray-light cc-border-radius-4 cc-p-6 cc-mx-6"
@@ -40,8 +42,8 @@
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
       <video
         class="cc-border-radius-4"
-        width="auto"
-        height="450"
+        width="100%"
+        height="auto"
         preload="metadata"
         controls
         title="Ear buds"
@@ -61,7 +63,7 @@
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
       <video
         class="cc-border-radius-4"
-        width="auto"
+        width="100%"
         height="450"
         preload="metadata"
         controls
@@ -94,4 +96,24 @@
   </div>
 </template>
 /* Styles ================================================================ */
-<style lang="postcss"></style>
+<style lang="postcss">
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2rem;
+  }
+  video {
+    height: auto;
+    width: 100%;
+  }
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+</style>

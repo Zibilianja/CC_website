@@ -26,58 +26,57 @@ import Header from '../components/singletons/Header.vue';
         href="https://www.npmjs.com/package/creativecorvidstylelibrary"
         target="_blank"
         >here.</a
-      >   
-      <div
-      class="navigation cc-d-grid cc-w-75 cc-justify-evenly cc-my-10 cc-mx-auto cc-gap-4"
-    >
-      <router-link
-        to="/portfolio"
-        class="nav-link"
       >
-        <CCButton
-          class="nav_button CC__purple"
-          title="View Portfolio"
-          >Portfolio</CCButton
+      <div class="navigation cc-d-grid cc-my-10 cc-mx-auto cc-gap-4">
+        <router-link
+          to="/portfolio"
+          class="nav-link"
         >
-      </router-link>
+          <CCButton
+            class="nav_button CC__purple"
+            title="View Portfolio"
+            >Portfolio</CCButton
+          >
+        </router-link>
 
-      <router-link
-        to="/3d-assets"
-        class="nav-link"
-      >
-        <CCButton
-          class="nav_button CC__green"
-          title="View 3D Assets"
-          >3D Assets
-        </CCButton>
-      </router-link>
+        <router-link
+          to="/3d-assets"
+          class="nav-link"
+        >
+          <CCButton
+            class="nav_button CC__green"
+            title="View 3D Assets"
+            >3D Assets
+          </CCButton>
+        </router-link>
 
-      <router-link
-        to="/shop"
-        class="nav-link"
-      >
-        <CCButton
-          class="nav_button CC__red"
-          title="View Shop"
+        <router-link
+          to="/shop"
+          class="nav-link"
         >
-          Shop
-        </CCButton>
-      </router-link>
-      <router-link
-        to="/contact"
-        class="nav-link"
-      >
-        <CCButton
-          id="contact-button"
-          class="nav_button CC__navy"
-          title="View Contact"
+          <CCButton
+            class="nav_button CC__red"
+            title="View Shop"
+          >
+            Shop
+          </CCButton>
+        </router-link>
+        <router-link
+          to="/contact"
+          class="nav-link"
         >
-          Contact
-        </CCButton>
-      </router-link>
-    </div>   <p>
-        Jonathan and his fiance love crafting, horticulture, and exploring
-        the outdoors. Visit our shop to see some of our creations for sale in
+          <CCButton
+            id="contact-button"
+            class="nav_button CC__navy"
+            title="View Contact"
+          >
+            Contact
+          </CCButton>
+        </router-link>
+      </div>
+      <p>
+        Jonathan and his fiance love crafting, horticulture, and exploring the
+        outdoors. Visit our shop to see some of our creations for sale in
         leather working, wood working and more. Jonathan is an avid and skilled
         fly fisherman, often if not working, you can find him walking around in
         a river. If you ever need guidance for fishing Colorado, please reach
@@ -86,7 +85,6 @@ import Header from '../components/singletons/Header.vue';
         <router-link to="/contact">Contact</router-link> page.
       </p>
     </div>
-    
   </div>
 </template>
 /* Styles ================================================================ */
@@ -95,7 +93,8 @@ import Header from '../components/singletons/Header.vue';
   color: white;
 }
 .navigation {
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  margin: 2rem auto;
   .nav_button {
     width: 100%;
     min-width: 150px;
@@ -107,12 +106,12 @@ import Header from '../components/singletons/Header.vue';
 }
 @media (max-width: 950px) {
   .navigation {
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 750px) {
   .navigation {
-    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 </style>

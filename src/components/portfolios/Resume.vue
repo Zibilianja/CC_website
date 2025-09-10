@@ -5,9 +5,9 @@ and journey.
 <script setup lang="ts"></script>
 /* Template ============================================================== */
 <template>
-  <h2>Resume</h2>
+  <h2 class="title">Resume</h2>
   <section class="cc-px-6">
-    <h3>Professional Experience</h3>
+    <h3 class="section-title cc-mb-4">Professional Experience</h3>
     <ul class="cc-text-left">
       <li>
         <h3>Software Developer - Denver Public Schools</h3>
@@ -110,4 +110,16 @@ and journey.
   </section>
 </template>
 /* Styles ================================================================ */
-<style lang="postcss"></style>
+<style lang="postcss">
+.title {
+  color: var(--CC-color-primary);
+  margin-bottom: -1rem;
+}
+.section-title {
+  color: var(--CC-color-text);
+  margin-bottom: 1rem;
+}
+li {
+  margin-right: 2rem;
+}
+</style>

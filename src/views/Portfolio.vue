@@ -41,7 +41,6 @@ console.log('Current Portfolio View:', currentPortfolioView.value);
     <div class="cc-w-100">
       <Header>
         <a
-          class="cc-mr-6"
           :class="
             currentPortfolioView === AnimationPortfolio ? 'active-anchor' : ''
           "
@@ -60,7 +59,6 @@ console.log('Current Portfolio View:', currentPortfolioView.value);
           >Software Development</a
         >
         <a
-          class="cc-ml-6"
           :class="
             currentPortfolioView === GameDevelopmentPortfolio
               ? 'active-anchor'
@@ -71,7 +69,6 @@ console.log('Current Portfolio View:', currentPortfolioView.value);
           >Game Development</a
         >
         <a
-          class="cc-ml-6"
           :class="currentPortfolioView === Resume ? 'active-anchor' : ''"
           :disabled="currentPortfolioView === Resume"
           @click="changePortfolio('resume')"

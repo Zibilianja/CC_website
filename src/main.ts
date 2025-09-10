@@ -4,7 +4,7 @@ import CreativeCorvidLibraryPlugin from 'creativecorvidstylelibrary';
 import router from './router';
 import './style.css';
 import 'creativecorvidstylelibrary/style.css';
-import FontAwesomeIcon from './fonts.ts';
+import FontAwesomeIcon from './fonts';
 import App from './App.vue';
 
 const app = createApp(App);
