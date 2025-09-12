@@ -5,9 +5,17 @@ and journey.
 <script setup lang="ts"></script>
 /* Template ============================================================== */
 <template>
-  <h2 class="title">Resume</h2>
+  <h1 class="title">Resume</h1>
+  <div class="resume-link cc-d-flex cc-justify-end">
+    <a
+      class="CC__button CC__red cc-mt-4 cc-mr-8"
+      href="JonathanF_Resume2025.docx"
+      download="JonathanFuller_Resume.docx"
+      >Download in docx</a
+    >
+  </div>
   <section class="cc-px-6">
-    <h3 class="section-title cc-mb-4">Professional Experience</h3>
+    <h2 class="section-title cc-mb-4">Professional Experience</h2>
     <ul class="cc-text-left">
       <li>
         <h3>Software Developer - Denver Public Schools</h3>
@@ -112,13 +120,20 @@ and journey.
 /* Styles ================================================================ */
 <style lang="postcss">
 .title {
-  color: var(--CC-color-primary);
   margin-bottom: -1rem;
+  font-size: 2rem;
 }
 .section-title {
   color: var(--CC-color-text);
   margin-bottom: 1rem;
 }
+.resume-link {
+  margin-top: 1rem;
+  width: 100%;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
 li {
   margin-right: 2rem;
 }

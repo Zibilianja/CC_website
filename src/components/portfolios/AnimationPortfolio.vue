@@ -41,8 +41,8 @@
     </div>
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
       <video
-        class="cc-border-radius-4"
-        width="100%"
+        class="sword-in-stone cc-border-radius-4"
+        width="50%"
         height="auto"
         preload="metadata"
         controls
@@ -58,6 +58,21 @@
         Three second animation of a magical sword in a stone, created in
         Blender: I modeled the sword and stone, the cave surrounding, added
         ambient occlusion and dust particles.
+      </p>
+    </div>
+    <div
+      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4 cc-w-75"
+    >
+      <img
+        class="cc-border-radius-4"
+        src="../../assets/Gumdrop.png"
+        alt="Gumdrop"
+        width="auto"
+        height="450"
+      />
+      <p class="">
+        Gumdrop I modeled and textured with geometry nodes to create the sugar
+        effect.
       </p>
     </div>
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
@@ -113,6 +128,15 @@ h1 {
   }
   img {
     height: auto;
+    width: 100%;
+  }
+  .sword-in-stone {
+    width: 50%;
+  }
+}
+
+@media (max-width: 650px) {
+  .sword-in-stone {
     width: 100%;
   }
 }
