@@ -46,6 +46,28 @@ const findManiImage = (fwdBck: string) => {
   >
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-10 cc-p-4">
       <video
+        id="redbull-animation"
+        class="cc-border-radius-4"
+        width="auto"
+        height="450"
+        preload="metadata"
+        controls
+        title="Redbull animation"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        src="/media/Redbull-animation0001-0110.mp4"
+        type="video/mp4"
+      />
+      <p>
+        Four-second Redbull product teaser of my favorite flavor. I modeled the
+        can, build the materials and UV maps, and lit the scene with a custom
+        lighting setup.
+      </p>
+    </div>
+    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-10 cc-p-4">
+      <video
         class="cc-border-radius-4"
         width="auto"
         height="450"
@@ -59,7 +81,7 @@ const findManiImage = (fwdBck: string) => {
         src="/media/Ear-buds.mp4"
         type="video/mp4"
       />
-      <p class="">
+      <p>
         Six-second product teaser created. I modeled the earbuds and case, built
         PBR shaders with custom textures, and lit the scene with a studio HDRI
         plus a rim light for contrast.
@@ -171,6 +193,8 @@ h1 {
   text-align: center;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+#redbull-animation {
 }
 @media (max-width: 900px) {
   h1 {
