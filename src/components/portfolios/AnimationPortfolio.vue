@@ -1,7 +1,33 @@
 /* ==========================================================================
 3DPortfolio.vue - This component showcases a 3D portfolio.
 ========================================================================== */
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import boxFull from '../../assets/Maniorpedi/Box-full.png';
+import box3_4 from '../../assets/Maniorpedi/Box-3_4.png';
+import satchet1 from '../../assets/Maniorpedi/Satchet-1.png';
+import satchet2 from '../../assets/Maniorpedi/Satchet-2.png';
+import satchet3 from '../../assets/Maniorpedi/Satchet-3.png';
+
+const currentManiImage = ref(boxFull);
+const maniImages = [boxFull, box3_4, satchet1, satchet2, satchet3];
+let maniIndex = 0;
+
+const findManiImage = (fwdBck: string) => {
+  if (fwdBck === 'forward') {
+    maniIndex++;
+    if (maniIndex > maniImages.length - 1) {
+      maniIndex = 0;
+    }
+  } else {
+    maniIndex--;
+    if (maniIndex < 0) {
+      maniIndex = maniImages.length - 1;
+    }
+  }
+  currentManiImage.value = maniImages[maniIndex];
+};
+</script>
 /* Template ============================================================== */
 <template>
   <div class="title-wrapper cc-mx-4">
@@ -58,6 +84,34 @@
         Three second animation of a magical sword in a stone, created in
         Blender: I modeled the sword and stone, the cave surrounding, added
         ambient occlusion and dust particles.
+      </p>
+    </div>
+    <div
+      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4 cc-w-75"
+    >
+      <div class="cc-d-flex cc-justify-evenly cc-mb-4">
+        <CCButton
+          class="CC__button CC__purple cc-mb-4 cc-mr-4 cc-my-auto"
+          @click="findManiImage('back')"
+          >Previous</CCButton
+        >
+        <img
+          class="cc-border-radius-4"
+          :src="currentManiImage"
+          alt="Gumdrop"
+          width="auto"
+          height="450"
+        />
+        <CCButton
+          class="CC__button CC__purple cc-mb-4 cc-mr-4 cc-my-auto"
+          @click="findManiImage('forward')"
+          >Next</CCButton
+        >
+      </div>
+      <p class="">
+        Freelance product modeling project for Maniorpedi, a Manicure and
+        Pedicure product company. Goal of acheiving photo-realism of the
+        prodcut.
       </p>
     </div>
     <div
