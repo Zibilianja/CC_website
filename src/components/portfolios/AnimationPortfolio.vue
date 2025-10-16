@@ -5,12 +5,20 @@
 import { ref } from 'vue';
 import boxFull from '../../assets/Maniorpedi/Box-full.png';
 import box3_4 from '../../assets/Maniorpedi/Box-3_4.png';
-import satchet1 from '../../assets/Maniorpedi/Satchet-1.png';
-import satchet2 from '../../assets/Maniorpedi/Satchet-2.png';
-import satchet3 from '../../assets/Maniorpedi/Satchet-3.png';
+import satchet1 from '../../assets/Maniorpedi/Sachet-1.png';
+import satchet2 from '../../assets/Maniorpedi/Sachet-2.png';
+import satchet3 from '../../assets/Maniorpedi/Sachet-3.png';
+import satchetSpread from '../../assets/Maniorpedi/Sachet-spread.png';
 
 const currentManiImage = ref(boxFull);
-const maniImages = [boxFull, box3_4, satchet1, satchet2, satchet3];
+const maniImages = [
+  boxFull,
+  box3_4,
+  satchetSpread,
+  satchet1,
+  satchet2,
+  satchet3,
+];
 let maniIndex = 0;
 
 const findManiImage = (fwdBck: string) => {
@@ -66,6 +74,33 @@ const findManiImage = (fwdBck: string) => {
         lighting setup.
       </p>
     </div>
+    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
+      <img
+        class="cc-border-radius-4 cc-mb-4"
+        :src="currentManiImage"
+        alt="Gumdrop"
+        width="auto"
+        height="450"
+      />
+      <div class="cc-d-flex cc-justify-between cc-mb-4">
+        <CCButton
+          class="CC__button CC__purple cc-mb-4 cc-ml-6 cc-my-auto"
+          @click="findManiImage('back')"
+          >Previous</CCButton
+        >
+
+        <CCButton
+          class="CC__button CC__purple cc-mb-4 cc-mr-6 cc-my-auto"
+          @click="findManiImage('forward')"
+          >Next</CCButton
+        >
+      </div>
+      <p class="">
+        Freelance product modeling project for Maniorpedi, a Manicure and
+        Pedicure product company. Goal of acheiving photo-realism of the product
+        in use with social media and online product listings.
+      </p>
+    </div>
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-10 cc-p-4">
       <video
         class="cc-border-radius-4"
@@ -108,34 +143,7 @@ const findManiImage = (fwdBck: string) => {
         ambient occlusion and dust particles.
       </p>
     </div>
-    <div
-      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4 cc-w-75"
-    >
-      <div class="cc-d-flex cc-justify-evenly cc-mb-4">
-        <CCButton
-          class="CC__button CC__purple cc-mb-4 cc-mr-4 cc-my-auto"
-          @click="findManiImage('back')"
-          >Previous</CCButton
-        >
-        <img
-          class="cc-border-radius-4"
-          :src="currentManiImage"
-          alt="Gumdrop"
-          width="auto"
-          height="450"
-        />
-        <CCButton
-          class="CC__button CC__purple cc-mb-4 cc-mr-4 cc-my-auto"
-          @click="findManiImage('forward')"
-          >Next</CCButton
-        >
-      </div>
-      <p class="">
-        Freelance product modeling project for Maniorpedi, a Manicure and
-        Pedicure product company. Goal of acheiving photo-realism of the
-        prodcut.
-      </p>
-    </div>
+
     <div
       class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4 cc-w-75"
     >
@@ -194,8 +202,7 @@ h1 {
   font-weight: 700;
   margin-bottom: 1rem;
 }
-#redbull-animation {
-}
+
 @media (max-width: 900px) {
   h1 {
     font-size: 2rem;
