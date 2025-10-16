@@ -52,7 +52,7 @@ const findManiImage = (fwdBck: string) => {
   <div
     class="cc-mt-4 cc-d-flex cc-flex-wrap cc-justify-center cc-bg-gray-light cc-border-radius-4 cc-p-6 cc-mx-6"
   >
-    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-10 cc-p-4">
+    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4">
       <video
         id="redbull-animation"
         class="cc-border-radius-4"
@@ -74,7 +74,7 @@ const findManiImage = (fwdBck: string) => {
         lighting setup.
       </p>
     </div>
-    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
+    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4">
       <img
         class="cc-border-radius-4 cc-mb-4"
         :src="currentManiImage"
@@ -101,7 +101,7 @@ const findManiImage = (fwdBck: string) => {
         in use with social media and online product listings.
       </p>
     </div>
-    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-10 cc-p-4">
+    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4">
       <video
         class="cc-border-radius-4"
         width="auto"
@@ -122,7 +122,7 @@ const findManiImage = (fwdBck: string) => {
         plus a rim light for contrast.
       </p>
     </div>
-    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
+    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4">
       <video
         class="sword-in-stone cc-border-radius-4"
         width="50%"
@@ -145,7 +145,7 @@ const findManiImage = (fwdBck: string) => {
     </div>
 
     <div
-      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4 cc-w-75"
+      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4 cc-w-100"
     >
       <img
         class="cc-border-radius-4"
@@ -159,7 +159,9 @@ const findManiImage = (fwdBck: string) => {
         effect.
       </p>
     </div>
-    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
+    <div
+      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4 cc-w-100"
+    >
       <video
         class="cc-border-radius-4"
         width="100%"
@@ -179,7 +181,9 @@ const findManiImage = (fwdBck: string) => {
         modeled, rigged and animated in Blender with custom texture maps.
       </p>
     </div>
-    <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-my-10 cc-p-4">
+    <div
+      class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4 cc-w-100"
+    >
       <img
         class="cc-border-radius-4"
         src="../../assets/PokeBall.png"
