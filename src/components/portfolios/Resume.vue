@@ -8,15 +8,15 @@ and journey.
   <h1 class="title">Resume</h1>
   <div class="resume-link cc-d-flex cc-justify-end">
     <a
-      class="CC__button CC__red cc-mt-4 cc-mr-8"
-      href="JonathanF_Resume2025.docx"
-      download="JonathanFuller_Resume.docx"
-      >Download in docx</a
+      class="CC__button CC__purple cc-mt-4 cc-mr-10"
+      href="JonFuller_Resume.docx (1).pdf"
+      download="JonathanFuller_Resume.pdf"
+      >Download PDF</a
     >
   </div>
   <section class="cc-px-6">
-    <h2 class="section-title cc-mb-4">Professional Experience</h2>
-    <ul class="cc-text-left">
+    <h2 class="section-title">Professional Experience</h2>
+    <ul class="cc-text-left cc-mt-10 cc-mx-6">
       <li>
         <h3>Software Developer - Denver Public Schools</h3>
         <div>Enterprise Software Applications Team - 07/2023 - 07/2025</div>

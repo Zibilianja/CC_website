@@ -11,7 +11,7 @@ const router = useRouter();
 /* Template ============================================================== */
 <template>
   <div
-    class="header-container cc-d-flex cc-justify-between cc-align-items-center cc-mt-8 cc-gap-4"
+    class="header-container cc-d-flex cc-justify-between cc-align-items-center cc-mt-8 cc-gap-4 cc-mx-8"
   >
     <router-link
       v-if="router.currentRoute.value.path !== '/'"

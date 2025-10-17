@@ -88,11 +88,11 @@ console.log('Current Portfolio View:', currentPortfolioView.value);
 <style lang="postcss">
 .portfolio-view {
   a {
-    color: #044e38;
+    color: var(--CC-color-focus-darker);
     font-weight: 600;
   }
   .active-anchor {
-    color: var(--CC-color-primary);
+    color: var(--CC-color-success);
     text-decoration: underline;
     pointer-events: none;
   }

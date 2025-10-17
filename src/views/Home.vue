@@ -17,11 +17,13 @@ import Header from '../components/singletons/Header.vue';
     </div>
 
     <div class="cc-mx-auto cc-my-4 cc cc-w-75 cc-text-center">
-      The Creative Corvid, Jonathan Fuller, is an experienced software engineer,
-      3D generalist with modeling, animation, texturing and rigging, and
-      aspiring game developer. This website was built using Vue3, TypeScript and
-      his own custom NPM component and style library. Check out the Creative
-      Corvid Style Library on npm's website
+      The Creative Corvid, aka Jonathan Fuller, is an experienced software
+      engineer, 3D artist specializing in modeling, animation, texturing and
+      rigging, and is an aspiring game developer. The name Creative Corvid is a
+      nod to how I like collecting skills to make and build things, like crows
+      collect shiny things. This website was built using Vue3, TypeScript and my
+      own custom NPM component and style library. Check out the Creative Corvid
+      Style Library on npm's website
       <a
         href="https://www.npmjs.com/package/creativecorvidstylelibrary"
         target="_blank"
@@ -75,20 +77,28 @@ import Header from '../components/singletons/Header.vue';
         </router-link>
       </div>
       <p>
-        Jonathan and his fiance love crafting, horticulture, and exploring the
-        outdoors. Visit our shop to see some of our creations for sale in
-        leather working, wood working and more. Jonathan is an avid and skilled
-        fly fisherman, often if not working, you can find him walking around in
-        a river. If you ever need guidance for fishing Colorado, please reach
-        out. Please explore around and if you would like to get in touch, please
-        visit the
-        <router-link to="/contact">Contact</router-link> page.
+        Visit our shop to see some of our creations for sale in leather working,
+        wood working, fly tying, cross-stitch, guitar pedals and more. I am an
+        avid fly fisherman, often if not working, you can find me walking around
+        in a river. If you ever need guidance for fishing Colorado, please reach
+        out, I would be happy to help. Please explore around and if you would
+        like to get in touch, please visit the
+        <router-link
+          class="in-text-link"
+          to="/contact"
+          >contact</router-link
+        >
+        page.
       </p>
     </div>
   </div>
 </template>
 /* Styles ================================================================ */
 <style lang="postcss">
+.in-text-link {
+  color: var(--CC-color-focus-dark);
+  text-decoration: underline;
+}
 #contact-button {
   color: white;
 }
