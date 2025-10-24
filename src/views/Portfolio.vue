@@ -32,8 +32,6 @@ const changePortfolio = (portfolioType: string) => {
       break;
   }
 };
-
-console.log('Current Portfolio View:', currentPortfolioView.value);
 </script>
 /* Template ============================================================== */
 <template>

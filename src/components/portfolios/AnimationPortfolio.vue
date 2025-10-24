@@ -3,14 +3,18 @@
 ========================================================================== */
 <script setup lang="ts">
 import { ref } from 'vue';
-import boxFull from '../../assets/Maniorpedi/Box-full.png';
-import box3_4 from '../../assets/Maniorpedi/Box-3_4.png';
-import satchet1 from '../../assets/Maniorpedi/Sachet-1.png';
-import satchet2 from '../../assets/Maniorpedi/Sachet-2.png';
-import satchet3 from '../../assets/Maniorpedi/Sachet-3.png';
-import satchetSpread from '../../assets/Maniorpedi/Sachet-spread.png';
+import boxFull from '../../assets/Maniorpedi/Box-full-2160.png';
+import box3_4 from '../../assets/Maniorpedi/Box-lid-shot.png';
+import satchet1 from '../../assets/Maniorpedi/Step-1-2160.png';
+import satchet2 from '../../assets/Maniorpedi/Step-2-2160.png';
+import satchet3 from '../../assets/Maniorpedi/Step-3-2160.png';
+import satchetSpread from '../../assets/Maniorpedi/Sachet-spread-2160.png';
+import whiskeyBottle from '../../assets/Whiskey-bottle.png';
+import glass1 from '../../assets/Whiskey-glass.png';
+import glass2 from '../../assets/Whiskey-glass-2.png';
 
 const currentManiImage = ref(boxFull);
+const currentWhiskeyImage = ref(whiskeyBottle);
 const maniImages = [
   boxFull,
   box3_4,
@@ -20,6 +24,9 @@ const maniImages = [
   satchet3,
 ];
 let maniIndex = 0;
+const whiskeyImages = [whiskeyBottle, glass1, glass2];
+
+let whiskeyIndex = 0;
 
 const findManiImage = (fwdBck: string) => {
   if (fwdBck === 'forward') {
@@ -34,6 +41,21 @@ const findManiImage = (fwdBck: string) => {
     }
   }
   currentManiImage.value = maniImages[maniIndex];
+};
+
+const findWhiskeyImage = (fwdBck: string) => {
+  if (fwdBck === 'forward') {
+    whiskeyIndex++;
+    if (whiskeyIndex > whiskeyImages.length - 1) {
+      whiskeyIndex = 0;
+    }
+  } else {
+    whiskeyIndex--;
+    if (whiskeyIndex < 0) {
+      whiskeyIndex = whiskeyImages.length - 1;
+    }
+  }
+  currentWhiskeyImage.value = whiskeyImages[whiskeyIndex];
 };
 </script>
 /* Template ============================================================== */
@@ -52,6 +74,50 @@ const findManiImage = (fwdBck: string) => {
   <div
     class="cc-mt-4 cc-d-flex cc-flex-wrap cc-justify-center cc-bg-gray-light cc-border-radius-4 cc-p-6 cc-mx-6"
   >
+    <div
+      class="cc-w-100 cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4"
+    >
+      <img
+        class="cc-border-radius-4"
+        :src="currentWhiskeyImage"
+        alt="Whiskey"
+        width="auto"
+        height="450"
+      />
+      <div class="cc-d-flex cc-justify-between cc-mb-4">
+        <CCButton
+          class="CC__button CC__purple cc-mb-4 cc-ml-8 cc-my-auto"
+          @click="findWhiskeyImage('back')"
+          >Previous</CCButton
+        >
+
+        <CCButton
+          class="CC__button CC__purple cc-mb-4 cc-mr-8 cc-my-auto"
+          @click="findWhiskeyImage('forward')"
+          >Next</CCButton
+        >
+      </div>
+      <p class="cc-px-8">
+        Whiskey glasses and bottle, of my favorite Japanese whiskey, Habiki. I
+        made this for practice with modeling patterns, glass, liquid, and
+        photo-realistic lighting.
+      </p>
+    </div>
+    <div
+      class="cc-w-100 cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4"
+    >
+      <img
+        class="cc-border-radius-4"
+        src="../../assets/Honey.png"
+        alt="Honey"
+        width="auto"
+        height="450"
+      />
+      <p class="cc-px-8">
+        Honey comb I modeled and textured for practice with subsurface
+        scattering and liquid simulations.
+      </p>
+    </div>
     <div class="cc-bg-white cc-box-shadow cc-border-radius-4 cc-mb-8 cc-p-4">
       <video
         id="redbull-animation"
@@ -68,7 +134,7 @@ const findManiImage = (fwdBck: string) => {
         src="/media/Redbull-animation0001-0110.mp4"
         type="video/mp4"
       />
-      <p>
+      <p class="cc-px-8">
         Four-second Redbull product teaser of my favorite flavor. I modeled the
         can, build the materials and UV maps, and lit the scene with a custom
         lighting setup.
@@ -84,13 +150,13 @@ const findManiImage = (fwdBck: string) => {
       />
       <div class="cc-d-flex cc-justify-between cc-mb-4">
         <CCButton
-          class="CC__button CC__purple cc-mb-4 cc-ml-6 cc-my-auto"
+          class="CC__button CC__purple cc-mb-4 cc-ml-8 cc-my-auto"
           @click="findManiImage('back')"
           >Previous</CCButton
         >
 
         <CCButton
-          class="CC__button CC__purple cc-mb-4 cc-mr-6 cc-my-auto"
+          class="CC__button CC__purple cc-mb-4 cc-mr-8 cc-my-auto"
           @click="findManiImage('forward')"
           >Next</CCButton
         >
@@ -116,7 +182,7 @@ const findManiImage = (fwdBck: string) => {
         src="/media/Ear-buds.mp4"
         type="video/mp4"
       />
-      <p>
+      <p class="cc-px-8">
         Six-second product teaser created. I modeled the earbuds and case, built
         PBR shaders with custom textures, and lit the scene with a studio HDRI
         plus a rim light for contrast.
