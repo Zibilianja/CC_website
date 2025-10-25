@@ -10,6 +10,7 @@ import Header from '../components/singletons/Header.vue';
 import { useNavStore } from '../stores/useNavStore';
 import { storeToRefs } from 'pinia';
 import ProjectList from '../components/pages/ProjectList.vue';
+import ThreeDPortfolio from '../components/portfolios/3DPortfolio.vue';
 
 const { currentPortfolioView, currentSoftwareSubView } = storeToRefs(
   useNavStore()
@@ -21,7 +22,7 @@ const changePortfolio = (portfolioType: string) => {
       currentPortfolioView.value = SoftwareDevelopmentPortfolio;
       break;
     case 'animation':
-      currentPortfolioView.value = AnimationPortfolio;
+      currentPortfolioView.value = ThreeDPortfolio;
       break;
     case 'game':
       currentPortfolioView.value = GameDevelopmentPortfolio; // Placeholder for GameDevelopmentPortfolio
