@@ -10,7 +10,7 @@ import Header from '../components/singletons/Header.vue';
 import { useNavStore } from '../stores/useNavStore';
 import { storeToRefs } from 'pinia';
 import ProjectList from '../components/pages/ProjectList.vue';
-import ThreeDPortfolio from '../components/portfolios/3DPortfolio.vue';
+import ThreeDPortfolio from '../components/portfolios/3dPortfolio.vue';
 
 const { currentPortfolioView, currentSoftwareSubView } = storeToRefs(
   useNavStore()
