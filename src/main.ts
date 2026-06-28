@@ -2,8 +2,8 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import CreativeCorvidLibraryPlugin from 'creativecorvidstylelibrary';
 import router from './router';
-import './style.css';
 import 'creativecorvidstylelibrary/style.css';
+import './style.css';
 import FontAwesomeIcon from './fonts';
 import App from './App.vue';
 

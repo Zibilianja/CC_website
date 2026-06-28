@@ -1,105 +1,178 @@
-/* ==========================================================================
-ProjectList.vue - This component displays a list of projects with links to view
-them. ==========================================================================
-*/
 <script setup lang="ts">
 const emit = defineEmits(['view-library', 'view-mind-signal']);
+
+const projects = [
+  {
+    title: 'creativecorvid.com',
+    subtitle: 'Portfolio Website',
+    description:
+      'Built in Vue 3 with TypeScript, PostCSS, and my npm component library. Showcases 3D, software, and game development work. Future plans include game assets for sale and an ecommerce craft shop.',
+    tags: ['Vue 3', 'TypeScript', 'Pinia'],
+    link: null,
+  },
+  {
+    title: 'CC Component Library',
+    subtitle: 'NPM Package',
+    description:
+      'Reusable Vue 3 components and a cohesive design system — buttons, inputs, modals, and utility classes for consistent UIs.',
+    tags: ['Vue 3', 'TypeScript', 'NPM'],
+    link: 'https://www.npmjs.com/package/creativecorvidstylelibrary',
+    external: true,
+  },
+  {
+    title: 'Mind Signal',
+    subtitle: 'ML / NLP Research',
+    description:
+      'Personal research project using Python to scrape Reddit and analyze posts across 50 subreddits, flagging significant mental health concerns.',
+    tags: ['Python', 'NLP', 'Machine Learning'],
+    action: 'mind-signal',
+  },
+  {
+    title: 'DPS Enterprise Applications',
+    subtitle: 'Denver Public Schools · 2023–2025',
+    description:
+      'Rebuilt legacy production apps for Colorado Dept. of Education and Transportation — serving 150,000+ users with Vue 3, TypeScript, C# .NET, custom pagination, and WCAG 2.2 compliance.',
+    tags: ['Vue 3', 'C# .NET', 'Accessibility'],
+    link: null,
+  },
+  {
+    title: 'ProcedureCard',
+    subtitle: 'Bitwise Industries · 2021–2023',
+    description:
+      'SaaS application for surgical procedural documentation — Angular/TypeScript frontend with Django backend. Helped hospitals streamline operating room inventory for surgeons.',
+    tags: ['Angular', 'Django', 'TypeScript'],
+    link: null,
+  },
+];
+
+const handleAction = (action: string | undefined) => {
+  if (action === 'mind-signal') emit('view-mind-signal');
+};
 </script>
-/* Template ============================================================== */
+
 <template>
-  <div class="software-development-portfolio">
-    <div class="cc-my-8">
-      <strong>Here are some of my software development projects:</strong>
-    </div>
-    <ul class="cc-mx-8">
-      <li class="cc-my-4">
-        <strong>Portfolio page, creativecorvid.com:</strong> This website was
-        built in Vue3 with Typescript, PostCss, Scss and utilizing my npm
-        component and style library. It showcases my 3D, software development
-        and game development portfolios. Future plans include more game
-        development projects, game ready assets for sale via subscription and
-        one off purchases, as well as an ecommerce shop for my and my fiance's
-        crafts and creations.
-      </li>
-      <li class="cc-my-4">
-        <strong>CC Component Library:</strong> An NPM component and style
-        library built with Vue3 and TypeScript. This library includes a variety
-        of reusable components such as buttons, input fields, modals, and more,
-        all styled with a cohesive design system. The library is designed to be
-        easily integrated into any Vue3 project, providing developers with a
-        consistent and efficient way to build user interfaces. Click
+  <div class="project-list">
+    <article
+      v-for="project in projects"
+      :key="project.title"
+      class="project-card card"
+    >
+      <div class="project-card__header">
+        <div>
+          <p class="project-card__subtitle">{{ project.subtitle }}</p>
+          <h3 class="project-card__title">{{ project.title }}</h3>
+        </div>
+      </div>
+      <p class="project-card__description">{{ project.description }}</p>
+      <div class="project-card__footer">
+        <div class="project-card__tags">
+          <span
+            v-for="tag in project.tags"
+            :key="tag"
+            class="project-card__tag"
+          >
+            {{ tag }}
+          </span>
+        </div>
         <a
-          href="https://www.npmjs.com/package/creativecorvidstylelibrary"
+          v-if="project.link"
+          :href="project.link"
           target="_blank"
-          >here</a
+          rel="noopener noreferrer"
+          class="project-card__link text-link"
         >
-        to view the library on npm.
-      </li>
+          View on npm
+        </a>
+        <button
+          v-else-if="project.action"
+          type="button"
+          class="project-card__link-btn text-link"
+          @click="handleAction(project.action)"
+        >
+          Learn more
+        </button>
+      </div>
+    </article>
 
-      <li class="cc-my-4">
-        <strong>Mind Signal:</strong> A personal research project into exploring
-        machine learning, natural language processing and AI. Utilizing Python,
-        Mind Signal scrapes Reddit and 50 specific subreddits to analyze and
-        categorize posts and comments to flag significant mental health
-        concerns. Click <a @click="emit('view-mind-signal')">here</a> to learn
-        more about it.
-      </li>
-
-      <li class="cc-my-4">
-        <strong>DPS Projects:</strong> When working for DPS for 2 years from
-        2023-2025, I rebuilt multiple legacy production applications. One for
-        the Colorado Department of Education that allowed their staff to search
-        for employee assignments, CRUD functionality to create new assignments,
-        adjust current assignment details or delete assignments/employee records
-        if needed. The last project and most significant in scope and scale, was
-        rebuilding the Transportation Exception Form applications, which
-        included a parent facing application, as well as an administrative
-        application. Across both applications, it is used by thousands of
-        parents, for our 100,000 students and the entire Transportation
-        department to manage Transportation Exception Requests. The parent would
-        navigate to the application via the parent portal, and with a 4 step
-        form, complete the forms, updating their childs bus route information
-        and requested needs. From there, the request would be sent to the
-        Transportation Department, where Routers would need to respond to these
-        requests in a timely manner. On the Admin side of the application, a
-        router would log into the application and could view a list of all
-        outstanding requests on the landing page. I built out complete front end
-        searching, filtering and sorting functionality with custom pagination.
-        For the Transportation Managers, they also wanted an overview of all
-        requests, which routers were assigned and be able to track all requests
-        beyond just the outstanding ones. For this we implemented back end,
-        server side searching, filtering and sorting because the data pool was
-        significantly larger for even just 2 years of records. I built out an
-        abort controller and implmented custom .NET API guards to maintain speed
-        and efficacy to allow for query results as the user types, without
-        making a ridiculous number of network calls. Unfortunately, as DPS is a
-        school district, and not a public facing entity, I cannot share links to
-        these applications.
-      </li>
-      <li class="cc-my-4">
-        <strong>Bitwise Projects:</strong> While working at Bitwise Industries
-        from 2021-2023, I worked on a variety of projects both as a developer
-        and a apprenticeship mentor. My work included developing web
-        applications using Angular and React, and collaborating with
-        cross-functional teams to deliver high-quality software solutions. The
-        primary application I worked on was called ProcedureCard. It was built
-        using Angular and TypeScript, with a django python backend.
-        ProcedureCard was a SaaS application that allowed users to create,
-        manage, and share procedural documentation for various tasks and
-        processes. The documents could then be shared with Hospitals and medical
-        institutions to make streamlining the process of surgeons having the
-        specific tools and materials needed for each procedure, available in the
-        operating room. ProcedureCard included features such as user
-        authentication, document creation and editing, searchable lists of
-        medical instruments and materials, and collaboration tools for teams to
-        work together on documentation.
-      </li>
-    </ul>
-    <p>
-      For more details, visit my
-      <a href="https://github.com/yourusername/your-repo">GitHub</a>
+    <p class="project-list__footer">
+      More on
+      <a
+        href="https://github.com/Zibilianja"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        GitHub
+      </a>
     </p>
   </div>
 </template>
-/* Styles ================================================================ */
-<style lang="postcss"></style>
+
+<style scoped>
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+}
+
+.project-card__subtitle {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--site-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.project-card__title {
+  font-size: 1.125rem;
+}
+
+.project-card__description {
+  margin: 0.75rem 0 1rem;
+  line-height: 1.65;
+  font-size: 0.9375rem;
+}
+
+.project-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.project-card__tag {
+  padding: 0.25rem 0.625rem;
+  background: var(--site-surface-muted);
+  border: 1px solid var(--site-border);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--site-text-secondary);
+}
+
+.project-card__link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+
+.project-list__footer {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+}
+</style>

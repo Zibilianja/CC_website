@@ -1,15 +1,10 @@
-/* ==========================================================================
-GameDevelopmentPortfolio.vue - This component showcases a game development
-portfolio.
-========================================================================== */
-<script setup lang="ts"></script>
-
-/* Template ============================================================== */
 <template>
-  <div class="game-development-portfolio">
-    <h2>Game Development Portfolio</h2>
-    <h3>Coming Soon...</h3>
+  <div class="coming-soon card">
+    <span class="coming-soon__badge">Coming Soon</span>
+    <h2>Game Development</h2>
+    <p>
+      Game projects and interactive experiences are in the works. Check back for
+      updates.
+    </p>
   </div>
 </template>
-/* Styles ================================================================ */
-<style lang="postcss"></style>

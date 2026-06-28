@@ -5,6 +5,8 @@ import {
   faTwitter,
   faYoutube,
   faInstagram,
+  faLinkedin,
+  faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faBars,
@@ -45,11 +47,23 @@ import {
   faCircleDot,
   faCircle,
   faAt,
+  faBriefcase,
+  faCube,
+  faEnvelope,
+  faExpand,
+  faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 import { faShop } from '@fortawesome/free-solid-svg-icons/faShop';
 
 library.add(
   faBars,
+  faLinkedin,
+  faGithub,
+  faBriefcase,
+  faCube,
+  faEnvelope,
+  faExpand,
+  faChartLine,
   faFacebook,
   faTwitter,
   faYoutube,

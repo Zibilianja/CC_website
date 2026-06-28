@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: OpenWeather proxy for Creative Corvid dashboard (keeps API key server-side)
+
+Parameters:
+  OpenWeatherApiKey:
+    Type: String
+    NoEcho: true
+    Description: OpenWeather API key (never exposed to the browser)
+
+Resources:
+  OpenWeatherFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: nodejs20.x
+      Handler: handler.handler
+      Timeout: 10
+      MemorySize: 128
+      Environment:
+        Variables:
+          OPENWEATHER_API_KEY: !Ref OpenWeatherApiKey
+      Code: ./functions/openweather-proxy/
+
+  OpenWeatherUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt OpenWeatherFunction.Arn
+      AuthType: NONE
+      Cors:
+        AllowOrigins:
+          - '*'
+        AllowMethods:
+          - GET
+
+  OpenWeatherUrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref OpenWeatherFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: '*'
+      FunctionUrlAuthType: NONE
+
+Outputs:
+  ProxyUrl:
+    Description: Set VITE_OPENWEATHER_PROXY_URL to this URL in Amplify (append /weather?lat=39.7392&lon=-104.9903)
+    Value: !GetAtt OpenWeatherUrl.FunctionUrl

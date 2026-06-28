@@ -1,19 +1,18 @@
-/* ==========================================================================
-CraftShop.vue - Craft shop landing page with navigation panel, showcasing
-various craft products and materials.
-========================================================================== */
-<script setup lang="ts"></script>
-/* Template ============================================================== */
+<script setup lang="ts">
+import Header from '../components/singletons/Header.vue';
+</script>
+
 <template>
-  <div class="craft-shop">
-    <router-link to="/">
-      <CCButton class="cc-mb-4 CC__purple">Back To Home</CCButton>
-    </router-link>
-    <h1>Craft Shop</h1>
-    <h2>Coming Soon... Page in development</h2>
-    <p>Explore our collection of craft products and materials.</p>
-    <!-- Craft product items would be dynamically loaded here -->
-  </div>
+  <Header />
+
+  <main class="page">
+    <div class="coming-soon card">
+      <span class="coming-soon__badge">In Development</span>
+      <h1>Craft Shop</h1>
+      <p>
+        Handcrafted leather work, woodworking, fly tying, cross-stitch, guitar
+        pedals, and more — coming soon.
+      </p>
+    </div>
+  </main>
 </template>
-/* Styles ================================================================ */
-<style lang="postcss"></style>

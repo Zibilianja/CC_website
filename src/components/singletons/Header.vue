@@ -1,107 +1,207 @@
-/* ==========================================================================
-Header.vue - The Header reusable component with basic nav and logo on most
-pages.
-========================================================================== */
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 import BlackCrowLogo from '../../assets/BlackCrowLogo.svg';
 
-const router = useRouter();
+const route = useRoute();
+const menuOpen = ref(false);
+
+const navLinks = [
+  { to: '/portfolio', label: 'Portfolio' },
+  { to: '/data-visualization', label: 'Data Visualization' },
+  { to: '/shop', label: 'Shop' },
+  { to: '/contact', label: 'Contact' },
+];
+
+const isActive = (path: string) => route.path === path;
+
+const closeMenu = () => {
+  menuOpen.value = false;
+};
 </script>
-/* Template ============================================================== */
+
 <template>
-  <div
-    class="header-container cc-d-flex cc-justify-between cc-align-items-center cc-mt-8 cc-gap-4 cc-mx-8"
-  >
-    <router-link
-      v-if="router.currentRoute.value.path !== '/'"
-      to="/"
-    >
-      <CCButton
-        id="header-back-button"
-        aria-label="Back to Home"
-        title="Back to Home"
-        class="CC__button CC__purple"
-        >Back to Home</CCButton
+  <header class="site-header">
+    <div class="site-header__inner content-container">
+      <router-link
+        to="/"
+        class="site-header__brand"
+        aria-label="Creative Corvid — Home"
+        @click="closeMenu"
       >
-    </router-link>
-    <div
-      class="nav-links cc-d-grid cc-text-center cc-justify-center cc-align-items-center"
-    >
-      <slot></slot>
+        <img
+          :src="BlackCrowLogo"
+          alt="Creative Corvid logo"
+          class="site-header__logo"
+        />
+        <span class="site-header__name">Creative Corvid</span>
+      </router-link>
+
+      <button
+        class="site-header__toggle"
+        :aria-expanded="menuOpen"
+        aria-controls="site-nav"
+        aria-label="Toggle navigation menu"
+        @click="menuOpen = !menuOpen"
+      >
+        <FontAwesomeIcon :icon="menuOpen ? 'times' : 'bars'" />
+      </button>
+
+      <nav
+        id="site-nav"
+        class="site-header__nav"
+        :class="{ 'site-header__nav--open': menuOpen }"
+      >
+        <router-link
+          v-for="link in navLinks"
+          :key="link.to"
+          :to="link.to"
+          class="site-header__link"
+          :class="{ 'site-header__link--active': isActive(link.to) }"
+          @click="closeMenu"
+        >
+          {{ link.label }}
+        </router-link>
+      </nav>
     </div>
-    <div class="logo-wrapper">
-      <img
-        id="header-logo"
-        :src="BlackCrowLogo"
-        alt="White Raven Logo"
-      />
-    </div>
-  </div>
+  </header>
 </template>
-/* Styles ================================================================ */
-<style lang="postcss">
-.header-container {
-  max-width: 100vw;
-  height: 8rem;
+
+<style scoped>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--site-surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--site-border);
 }
-.nav-links {
-  width: 50%;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+
+.site-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 17, 21, 0.12),
+    transparent
+  );
+  pointer-events: none;
 }
-#header-logo {
-  width: 8rem;
-  height: 8rem;
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--site-header-height);
 }
-#header-back-button {
-  height: auto;
-  padding: 1.5rem 1rem;
-  margin-left: 1.5rem;
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--site-text);
+  text-decoration: none;
+  flex-shrink: 0;
 }
-@media (max-width: 900px) {
-  .nav-links {
-    width: 75%;
-    grid-template-columns: repeat(2, 1fr);
+
+.site-header__brand:hover {
+  color: var(--site-text);
+}
+
+.site-header__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.site-header__name {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.02em;
+}
+
+.site-header__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-radius-sm);
+  background: var(--site-surface);
+  color: var(--site-text);
+  cursor: pointer;
+  transition: background var(--site-transition);
+}
+
+.site-header__toggle:hover {
+  border-color: var(--site-text-muted);
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.site-header__link {
+  padding: 0.5rem 1rem;
+  border-radius: var(--site-radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--site-text-muted);
+  text-decoration: none;
+  transition: color var(--site-transition);
+}
+
+.site-header__link:hover {
+  color: var(--site-text);
+  background: transparent;
+}
+
+.site-header__link--active {
+  color: var(--site-text);
+  background: transparent;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--site-text);
+}
+
+@media (max-width: 768px) {
+  .site-header__toggle {
+    display: flex;
   }
-}
-@media (max-width: 750px) {
-  #header-logo {
+
+  .site-header__name {
     display: none;
   }
-  .header-container {
-    height: auto;
-    padding: 1rem 0;
-    gap: 1rem;
-    margin: 0 auto;
 
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 0.5rem;
-    margin: 0 -3rem 0 0;
-  }
-  #header-back-button {
-    padding: 1rem 0.5rem;
-    font-size: 0.9rem;
-    margin: 0 0 0 3rem;
-  }
-}
-@media (max-width: 475px) {
-  #header-back-button {
-    margin: 0;
-  }
-  .header-container {
+  .site-header__nav {
+    display: none;
+    position: absolute;
+    top: var(--site-header-height);
+    left: 0;
+    right: 0;
     flex-direction: column;
-    min-width: 100vw;
-    margin: 0 auto 5rem auto;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.75rem;
+    background: var(--site-surface);
+    border-bottom: 1px solid var(--site-border);
+    box-shadow: var(--site-shadow);
   }
-  .nav-links {
-    font-size: 1rem;
-    margin: 0;
+
+  .site-header__nav--open {
+    display: flex;
+  }
+
+  .site-header__link {
+    padding: 0.75rem 1rem;
   }
 }
 </style>

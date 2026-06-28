@@ -15,9 +15,9 @@ export default createRouter({
       component: () => import('../views/Portfolio.vue'),
     },
     {
-      path: '/3d-assets',
-      name: '3DAssets',
-      component: () => import('../views/3DAssets.vue'),
+      path: '/data-visualization',
+      name: 'DataVisualization',
+      component: () => import('../views/DataVisualization.vue'),
     },
     {
       path: '/shop',

@@ -1,6 +1,3 @@
-/* ==========================================================================
-Portfolio.vue - Portfolio view for showcasing creative work.
-========================================================================== */
 <script setup lang="ts">
 import AnimationPortfolio from '../components/portfolios/AnimationPortfolio.vue';
 import SoftwareDevelopmentPortfolio from '../components/portfolios/SoftwareDevelopmentPortfolio.vue';
@@ -16,6 +13,17 @@ const { currentPortfolioView, currentSoftwareSubView } = storeToRefs(
   useNavStore()
 );
 
+const tabs = [
+  { id: 'animation', label: '3D Portfolio', component: ThreeDPortfolio },
+  {
+    id: 'software',
+    label: 'Software',
+    component: SoftwareDevelopmentPortfolio,
+  },
+  { id: 'game', label: 'Game Dev', component: GameDevelopmentPortfolio },
+  { id: 'resume', label: 'Resume', component: Resume },
+];
+
 const changePortfolio = (portfolioType: string) => {
   switch (portfolioType) {
     case 'software':
@@ -25,7 +33,7 @@ const changePortfolio = (portfolioType: string) => {
       currentPortfolioView.value = ThreeDPortfolio;
       break;
     case 'game':
-      currentPortfolioView.value = GameDevelopmentPortfolio; // Placeholder for GameDevelopmentPortfolio
+      currentPortfolioView.value = GameDevelopmentPortfolio;
       currentSoftwareSubView.value = ProjectList;
       break;
     case 'resume':
@@ -33,72 +41,59 @@ const changePortfolio = (portfolioType: string) => {
       break;
   }
 };
+
+const isActiveTab = (tab: (typeof tabs)[number]) => {
+  if (tab.id === 'animation') {
+    return (
+      currentPortfolioView.value === ThreeDPortfolio ||
+      currentPortfolioView.value === AnimationPortfolio
+    );
+  }
+  return currentPortfolioView.value === tab.component;
+};
 </script>
-/* Template ============================================================== */
+
 <template>
-  <div class="portfolio-view">
-    <div class="cc-w-100">
-      <Header>
-        <a
-          :class="
-            currentPortfolioView === AnimationPortfolio ? 'active-anchor' : ''
-          "
-          :disabled="currentPortfolioView === AnimationPortfolio"
-          @click="changePortfolio('animation')"
-          >3D Portfolio</a
-        >
-        <a
-          :class="
-            currentPortfolioView === SoftwareDevelopmentPortfolio
-              ? 'active-anchor'
-              : ''
-          "
-          :disabled="currentPortfolioView === SoftwareDevelopmentPortfolio"
-          @click="changePortfolio('software')"
-          >Software Development</a
-        >
-        <a
-          :class="
-            currentPortfolioView === GameDevelopmentPortfolio
-              ? 'active-anchor'
-              : ''
-          "
-          :disabled="currentPortfolioView === GameDevelopmentPortfolio"
-          @click="changePortfolio('game')"
-          >Game Development</a
-        >
-        <a
-          :class="currentPortfolioView === Resume ? 'active-anchor' : ''"
-          :disabled="currentPortfolioView === Resume"
-          @click="changePortfolio('resume')"
-          >Resume</a
-        >
-      </Header>
-    </div>
-    <div
-      class="portfolio-navigation cc-d-flex cc-gap-4 cc-justify-center"
-    ></div>
-    <div class="portfolio-content cc-my-10 cc-mx-auto cc-w-3/4">
+  <Header />
+
+  <main class="portfolio-view page">
+    <header class="page-header page-header--center">
+      <h1>Portfolio</h1>
+      <p>Explore my work across 3D art, software development, and more.</p>
+    </header>
+
+    <nav class="tab-bar" aria-label="Portfolio sections">
+      <button
+        v-for="tab in tabs"
+        :key="tab.id"
+        type="button"
+        class="tab-bar__item"
+        :class="{ 'tab-bar__item--active': isActiveTab(tab) }"
+        @click="changePortfolio(tab.id)"
+      >
+        {{ tab.label }}
+      </button>
+    </nav>
+
+    <div class="portfolio-content">
       <component :is="currentPortfolioView" />
     </div>
-  </div>
+  </main>
 </template>
-/* Styles ================================================================ */
-<style lang="postcss">
-.portfolio-view {
-  a {
-    color: var(--CC-color-focus-darker);
-    font-weight: 600;
+
+<style scoped>
+.portfolio-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
   }
-  .active-anchor {
-    color: var(--CC-color-success);
-    text-decoration: underline;
-    pointer-events: none;
-  }
-  a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    color: var(--CC-color-gray-dark);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
